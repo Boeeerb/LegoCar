@@ -7,15 +7,19 @@ import RPi.GPIO as GPIO
 import os
 from random import randint
 
+## Disable warning as they get a bit annoying
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+## Set a random port so it can restart incase the script crashes
 RPort = randint(6000,8000)
-LEDPIN = 8
-BUZPIN = 7
-MOTEN = 18
-MOTA = 23
-MOTB = 24
+
+## Define all pins used
+LEDPIN = 8    ## LED headlights
+BUZPIN = 7    ## Horn
+MOTEN = 18    ## Motor enable pin
+MOTA = 23     ## Motor A pin
+MOTB = 24     ## Motor B pin
 
 GPIO.setup(BUZPIN, GPIO.OUT)
 GPIO.setup(LEDPIN, GPIO.OUT)
